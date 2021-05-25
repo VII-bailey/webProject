@@ -8,7 +8,6 @@ from App.models import db
 def create_app():
     # 定义系统路径的变量
     BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-    print(BASE_DIR)
 
     # 定义静态文件的路径
     static_dir = os.path.join(BASE_DIR, 'static')

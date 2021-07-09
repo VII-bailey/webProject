@@ -1,7 +1,7 @@
 import os
 
 import redis
-from flask import Flask
+from flask import Flask, Blueprint
 from App.models import db
 
 
@@ -20,8 +20,11 @@ def create_app():
                 static_folder=static_dir,
                 template_folder=templates_dir)
 
+
+    #  创建蓝图对象
+    admin = Blueprint('admin', __name__)
     # 注册蓝图
-    app.register_blueprint(url_prefix='/user')
+    app.register_blueprint(admin, url_prefix='/homepage')
 
     # 配置 mysql 数据库
     app.config['SQLALCHEMY_DATABASE_URL'] = 'mysql+pymysql://root:148103@192.168.58.128:3306/web'
